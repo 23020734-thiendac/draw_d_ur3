@@ -39,14 +39,6 @@ Trong RViz:
 - Duong mau xanh nuoc bien la net muc thuc te cua dau cong tac.
 - Chu duoc ve tren mat phang dung `xz`.
 
-## Chay khong mo giao dien
-
-Neu chi muon kiem tra nhanh, co the tat Gazebo GUI va RViz:
-
-```bash
-ros2 launch ur3_d draw_letter_d_red.launch.py gazebo_gui:=false launch_rviz:=false
-```
-
 ## Cac file chinh
 
 - `src/TuongTacNguoi_Robot/ur3_d/launch/draw_letter_d_red.launch.py`: file launch de chay demo ve chu D.
