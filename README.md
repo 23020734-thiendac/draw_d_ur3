@@ -1,20 +1,20 @@
-# Draw Letter D with UR3
+# Mo phong UR3 ve chu D tren mat phang dung
 
-ROS 2 Humble demo for simulating a UR3 robot drawing the Vietnamese letter `D`/`Đ` on a vertical plane using Gazebo, MoveIt 2 and RViz.
+Day la demo ROS 2 Humble mo phong robot UR3 ve chu `D`/`Đ` tren mat phang dung bang Gazebo, MoveIt 2 va RViz.
 
-## Requirements
+## Yeu cau
 
-- Ubuntu with ROS 2 Humble
-- Gazebo / Ignition Fortress packages used by Universal Robots ROS 2 simulation
+- Ubuntu va ROS 2 Humble
 - MoveIt 2
-- Universal Robots ROS 2 packages:
+- Gazebo / Ignition Fortress
+- Cac package UR ROS 2:
   - `ur_description`
   - `ur_moveit_config`
   - `ur_simulation_gz`
 
-## Build
+## Bien dich
 
-Clone this repository into a ROS 2 workspace, or use it as the workspace root:
+Chay cac lenh sau trong workspace:
 
 ```bash
 cd ~/ros2_ws
@@ -23,44 +23,34 @@ colcon build --symlink-install --packages-select ur3_d
 source install/setup.bash
 ```
 
-## Run The Vertical Letter D Demo
+## Chay chuong trinh ve chu D
 
-Launch Gazebo, MoveIt, RViz and the writer node:
+Chay launch chinh:
 
 ```bash
 ros2 launch ur3_d draw_letter_d_red.launch.py
 ```
 
-The demo waits until Gazebo, controllers, joint states and TF are ready, then automatically starts drawing.
+Launch nay se khoi dong Gazebo, MoveIt, RViz va node ve chu. Sau khi robot, controller, joint states va TF san sang, chuong trinh tu dong bat dau ve.
 
-In RViz:
+Trong RViz:
 
-- Red marker: planned letter path.
-- Blue marker: actual ink trace from the end effector.
-- The drawing plane is vertical, using the `xz` plane.
+- Duong mau do la quy dao du kien.
+- Duong mau xanh nuoc bien la net muc thuc te cua dau cong tac.
+- Chu duoc ve tren mat phang dung `xz`.
 
-## Headless Test
+## Chay khong mo giao dien
 
-To run without Gazebo GUI and RViz:
+Neu chi muon kiem tra nhanh, co the tat Gazebo GUI va RViz:
 
 ```bash
 ros2 launch ur3_d draw_letter_d_red.launch.py gazebo_gui:=false launch_rviz:=false
 ```
 
-## Useful Files
+## Cac file chinh
 
-- `src/TuongTacNguoi_Robot/ur3_d/launch/draw_letter_d_red.launch.py`: main launch file for this demo.
-- `src/TuongTacNguoi_Robot/ur3_d/config/writer_vertical_red.yaml`: drawing plane, marker colors and writer settings.
-- `src/TuongTacNguoi_Robot/ur3_d/src/write_letter_d_node.cpp`: writer node.
-- `src/TuongTacNguoi_Robot/ur3_d/src/letter_d_path.cpp`: creates the letter waypoints.
-- `src/TuongTacNguoi_Robot/ur3_d/src/moveit_executor.cpp`: plans and executes MoveIt trajectories.
-
-## Troubleshooting
-
-If RViz shows red RobotModel errors or the launch reports existing simulation nodes, stop old terminals with `Ctrl+C` before launching again.
-
-If using a custom ROS domain, use the same value in every terminal:
-
-```bash
-export ROS_DOMAIN_ID=10
-```
+- `src/TuongTacNguoi_Robot/ur3_d/launch/draw_letter_d_red.launch.py`: file launch de chay demo ve chu D.
+- `src/TuongTacNguoi_Robot/ur3_d/config/writer_vertical_red.yaml`: cau hinh mat phang ve, mau marker va thong so ve.
+- `src/TuongTacNguoi_Robot/ur3_d/src/write_letter_d_node.cpp`: node dieu khien qua trinh ve.
+- `src/TuongTacNguoi_Robot/ur3_d/src/letter_d_path.cpp`: tao cac waypoint cua chu D.
+- `src/TuongTacNguoi_Robot/ur3_d/src/moveit_executor.cpp`: lap ke hoach va thuc thi trajectory bang MoveIt.
