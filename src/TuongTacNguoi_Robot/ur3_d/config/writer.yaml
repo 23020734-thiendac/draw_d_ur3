@@ -1,0 +1,26 @@
+write_letter_d_node:
+  ros__parameters:
+    planning_group: ur_manipulator
+    drawing_plane: xy
+    letter_height: 0.13
+    letter_width: 0.08
+    lift_height: 0.06
+    eef_step: 0.005
+    min_fraction: 0.999
+    avoid_collisions: true
+    execute_motion: true
+    move_to_named_start: true
+    named_start: test_configuration
+    marker_latch_seconds: 60.0
+    trace_z_tolerance: 0.004
+    trace_plane_tolerance: 0.004
+    trace_max_path_deviation: 0.015
+    trace_min_point_distance: 0.001
+    planned_marker_r: 0.05
+    planned_marker_g: 0.75
+    planned_marker_b: 1.0
+    planned_marker_a: 1.0
+    trace_marker_r: 0.0
+    trace_marker_g: 0.2
+    trace_marker_b: 0.9
+    trace_marker_a: 1.0
